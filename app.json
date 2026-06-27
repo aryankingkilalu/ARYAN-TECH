@@ -1,0 +1,78 @@
+{
+  "name": "∆RY∆N-X TECH WhatsApp Bot",
+  "description": "Advanced WhatsApp Bot with 200+ features for group management and automation",
+  "repository": "https://github.com/aryankingkilalu/ARYAN-TECH",
+  "logo": "",
+  "keywords": [
+    "whatsapp",
+    "bot",
+    "whatsapp-bot",
+    "baileys",
+    "nodejs",
+    "javascript",
+    "automation",
+    "group-management",
+    "teddy",
+    "xmd"
+  ],
+  "website": "https://github.com/aryankingkilalu/ARYAN-TECH",
+  "success_url": "/",
+  "env": {
+    "PREFIX": {
+      "description": "Command prefix",
+      "value": ".",
+      "required": false
+    },
+    "SESSION_ID": {
+      "description": "Session ID (e.g. ARYAN-X:~YOUR_FILE_ID)",
+      "value": "",
+      "required": false
+    },
+    "BOT_OWNER": {
+      "description": "Bot owner name",
+      "value": "ARYAN",
+      "required": true
+    },
+    "OWNER_NUMBER": {
+      "description": "Owner WhatsApp number (without + or spaces)",
+      "required": true
+    },
+    "COMMAND_MODE": {
+      "description": "Bot mode: public or private",
+      "value": "private",
+      "required": true
+    },
+    "PORT": {
+      "description": "Port assigned by Heroku",
+      "value": "3000",
+      "required": false
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "https://github.com/jontewks/puppeteer-heroku-buildpack"
+    }
+  ],
+  "addons": [
+    {
+      "plan": "heroku-redis:mini",
+      "as": "REDIS"
+    }
+  ],
+  "stack": "heroku-22",
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "npm test"
+      }
+    }
+  }
+}
